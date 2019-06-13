@@ -1,0 +1,25 @@
+.title{
+  font-size: 30px;
+  font-weight: bold;  
+  text-align: center;
+  padding: 30px;
+  color: #140d60;
+}
+
+.body{
+  text-align: center;
+}
+
+.submit{
+  background-color: #ff914d;
+  color: #140d60;
+  font-weight: bold;
+  padding: 3px;
+  width: 7%;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.search{
+  background-color:#e7ecf6;
+  padding: 2px;
+}
