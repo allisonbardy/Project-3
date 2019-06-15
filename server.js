@@ -6,6 +6,19 @@ const mysql = require("mysql")
 const sequelize = require("sequelize")
 const env = require("dotenv").config()
 const db = require("./models")
+const passport   = require('passport')
+const session    = require('express-session')
+const bodyParser = require('body-parser')
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use(session({ secret: 'ragtime cat',resave: true, saveUninitialized:true})); // session secret
+ 
+app.use(passport.initialize());
+ 
+app.use(passport.session());
 
 
 // Serve up static assets (usually on heroku)
@@ -26,10 +39,10 @@ app.listen(PORT, function() {
 db.sequelize.sync().then(function(){
   console.log("Nice Database looks fine!")
 
-  app.listen(PORT,function(){
+/*   app.listen(PORT,function(){
     console.log(`App listening on ${PORT}`)
   });
-
+ */
 }).catch(function(err){
   console.log(err, "Something went wrong with the Database Update!")
 });
