@@ -20,6 +20,12 @@ app.use(passport.initialize());
  
 app.use(passport.session());
 
+//For React/JSX Templating
+
+app.set('views', './app/views');
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
