@@ -6,6 +6,8 @@ const mysql = require("mysql")
 const sequelize = require("sequelize")
 const env = require("dotenv").config()
 const db = require("./models")
+const passport   = require('passport')
+const session    = require('express-session')
 
 
 // Serve up static assets (usually on heroku)

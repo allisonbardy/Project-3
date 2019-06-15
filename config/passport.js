@@ -1,6 +1,6 @@
  //load bcrypt
  var bCrypt = require('bcrypt-nodejs');
- const User = require("../../models").User;
+ const User = require("../../Project3/models").User;
  var passport = require('passport')
 
 
@@ -59,8 +59,6 @@ console.log('testing' + emailTaken)
        password: userPassword,
        firstName: req.body.firstName,
        lastName: req.body.lastName,
-       major: req.body.major,
-       occupation: req.body.occupation
        };
 
 console.log('test2', data)
