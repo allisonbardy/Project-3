@@ -20,6 +20,7 @@ app.use(passport.initialize());
  
 app.use(passport.session());
 
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -38,10 +39,10 @@ app.listen(PORT, function() {
 db.sequelize.sync().then(function(){
   console.log("Nice Database looks fine!")
 
-  app.listen(PORT,function(){
+/*   app.listen(PORT,function(){
     console.log(`App listening on ${PORT}`)
   });
-
+ */
 }).catch(function(err){
   console.log(err, "Something went wrong with the Database Update!")
 });
