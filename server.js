@@ -10,6 +10,8 @@ const passport   = require('passport')
 const session    = require('express-session')
 const bodyParser = require('body-parser')
 const authController = require('./controllers/authcontroller.js');
+//Routes
+var authRoute = require('./routes/auth.js')(app, passport);
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,8 +36,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 var models = require("./models");
-//Routes
-var authRoute = require('./routes/auth.js')(app, passport);
+
 
 require('./config/passport.js')(passport, models.user);
 

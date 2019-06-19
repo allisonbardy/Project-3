@@ -4,8 +4,8 @@ import './Portfolio.css';
 const portfolio = () => {
    return (
    <div>
-   <table class="table">
-   <thead class="tableHead">
+   <table className="table">
+   <thead className="tableHead">
       <tr>
          <th scope="col">No.</th>
          <th scope="col">Stock Name</th>
