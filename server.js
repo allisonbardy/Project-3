@@ -68,11 +68,11 @@ app.get("/api/users",function(req, res){
   })
 })
 
-app.get("*", function(req, res) {
-/* app.get("*", function(req, res) {
+// app.get("*", function(req, res) {
+ app.get("*", function(req, res) {
 
   res.sendFile(path.join(__dirname, "./client/public/index.html"));
-}); */
+ }); 
 
 // app.listen(PORT, function() {
 //   console.log(`🌎 ==> API server now on port ${PORT}!`);
@@ -81,10 +81,11 @@ app.get("*", function(req, res) {
 db.sequelize.sync().then(function(){
   console.log("Nice Database looks fine!")
 
-/*   app.listen(PORT,function(){
+   app.listen(PORT,function(){
     console.log(`App listening on ${PORT}`)
   });
- */
+ 
 }).catch(function(err){
   console.log(err, "Something went wrong with the Database Update!")
-});
+})
+
