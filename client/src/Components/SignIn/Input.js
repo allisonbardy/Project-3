@@ -1,6 +1,6 @@
 import React from "react"
 
-import "./Signup.css"
+import "../Signup/Signup.css"
 
 
 export default function Input(props){

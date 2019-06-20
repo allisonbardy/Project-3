@@ -3,7 +3,7 @@ import './Total.css';
 
 const total = () => {
    return (
-      <h1 className="total"> TOTAL:  </h1>    
+      <h2 className="total"> TOTAL: $400 </h2>    
    )
 }
 

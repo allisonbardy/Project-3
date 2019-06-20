@@ -1,17 +1,24 @@
 import React from "react"
 
+import "./table.css"
+
+
 
 export default function TableHead(props){
     return(
-        <table class="table">
+        <table className="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+
+      <th scope="col">Stock Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Change</th>
+      <th scope="col">% Change</th>
+      <th scope="col">Volume</th>
+
     </tr>
   </thead>
+  {props.children}
   </table>
     )
 }

@@ -1,13 +1,20 @@
-import react from "react"
+import React from "react"
+
+import "./table.css"
+
+
 
 export default function TableRow(props){
+    // console.log(props)
     return(
+        
         <tbody>
             <tr>
-                <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+
+            <td>{props.companyName}</td>
+            <td>{props.latestPrice}</td>
+            <td>{props.yearHigh}</td>
+
             </tr>
         </tbody>
     )

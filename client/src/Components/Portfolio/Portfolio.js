@@ -1,6 +1,7 @@
-import React from 'react';
-import './Portfolio.css';
+import React from "react"
+import "../Table/table.css"
 
+<<<<<<< HEAD
 const portfolio = () => {
    return (
    <div>
@@ -24,28 +25,22 @@ const portfolio = () => {
          <td>$0.46</td>
          <td>3 month</td>
       </tr>
+=======
+>>>>>>> 03311236b8f1ab32858984d66f64d180c61068cf
 
-      <tr>
-         <th scope="row">2</th>
-         <td>APPL</td>
-         <td>6</td>
-         <td>$190.15</td>
-         <td>$0.77</td>
-         <td>3 month</td>
-      </tr>
-
-      <tr>
-         <th scope="row">3</th>
-         <td>MSFT</td>
-         <td>14</td>
-         <td>$106.06</td>
-         <td>$0.53</td>
-         <td>3 month</td>
-      </tr>
-   </tbody>
-   </table>
-</div>
-   )
+export default function Portfolio(props){
+    return(
+        <table className="table">
+  <thead>
+    <tr>
+      <th scope="col">Stock Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Change</th>
+      <th scope="col">% Change</th>
+      <th scope="col">Volume</th>
+    </tr>
+  </thead>
+  {props.children}
+  </table>
+    )
 }
-
-export default portfolio;

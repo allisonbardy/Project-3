@@ -1,15 +1,18 @@
 .logo{
-    font-size: 40px;
+    font-size: 20px;
     padding: 20px;
 }
 
 .menuItems{
     list-style: none;
     float: left;
-
 }
 
 li {
     display: inline-block;
     padding: 10px;
+}
+
+.navbar-brand {
+    font-weight: bolder;
 }
