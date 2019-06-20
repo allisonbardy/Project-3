@@ -5,12 +5,13 @@ import $ from "jquery"
 
 class Signup extends Component {
     state = {
-        User:{
+        User: {
         firstName:'',
         lastName:'',
         email:'',
         password: ''
     },
+
     redirect: false
 }
 

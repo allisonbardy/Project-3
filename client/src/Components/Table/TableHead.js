@@ -3,7 +3,7 @@ import React from "react"
 
 export default function TableHead(props){
     return(
-        <table class="table">
+        <table className="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -12,6 +12,7 @@ export default function TableHead(props){
       <th scope="col">Handle</th>
     </tr>
   </thead>
+  {props.children}
   </table>
     )
 }
