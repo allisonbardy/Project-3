@@ -1,5 +1,5 @@
 .logo{
-    font-size: 40px;
+    font-size: 20px;
     padding: 20px;
 }
 
@@ -12,4 +12,8 @@
 li {
     display: inline-block;
     padding: 10px;
+}
+
+.navbar-brand {
+    font-weight: bolder;
 }

@@ -1,0 +1,14 @@
+h3 {
+    font-weight: bolder;
+}
+
+.totalGoal{
+    float: right;
+}
+.card-img-top {
+    width: 300px;
+}
+.card-body {
+    width: 300px;
+    text-align: center;
+}

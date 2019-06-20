@@ -3,8 +3,11 @@ import React, { Component } from "react";
 import "./App.css";
 import Menu from './Components/Menu/Menu'
 import Search from "./Components/Searchbar/Search";
+import Image from "./Components/Image/Image";
+import Welcome from "./Components/Welcome/Welcome";
 import Total from "./Components/Total/Total";
-import ViewTabs from "./Components/Tabs/ViewsTab";
+// import ViewTabs from "./Components/Tabs/ViewsTab";
+import Graphs from "./Components/Graphs/Graphs";
 import Portfolio from "./Components/Portfolio/Portfolio";
 
 class App extends Component {
@@ -12,10 +15,14 @@ class App extends Component {
     return (
     <div>
       <Menu />
+      <Image />
       <Search />
-      <ViewTabs /> 
-      <Total />
+
+      <Welcome />
+      {/* <ViewTabs />  */}
+      <Graphs />
       <Portfolio />
+      <Total />
     </div>
     )
   }

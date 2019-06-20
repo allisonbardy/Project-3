@@ -1,4 +1,4 @@
-.title{
+/* .title{
   font-size: 30px;
   font-weight: bold;  
   text-align: center;
@@ -22,4 +22,11 @@
 .search{
   background-color:#e7ecf6;
   padding: 2px;
+} */
+
+.form-group {
+  font-size: 18px;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-bottom: 100px;
 }

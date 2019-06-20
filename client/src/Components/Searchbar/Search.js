@@ -2,14 +2,17 @@ import React from 'react';
 import './Search.css';
 
 const search = () => {
-   return (
-    <div className="body">
-      <h1 className="title"> SEARCH FOR A STOCK </h1>
-      <input className="search" placeholder = "SEARCH..."/>
-      <button className="submit"> SUBMIT </button>
-    </div>
-    
-   )
+  return (
+    <form>
+      <div className="form-group mx-sm-3 mb-2">
+        Search For A Stock <br /><br />
+        <input type="text" placeholder="Search..." />
+        <button className="btn btn-sm" type="button submit">
+        Submit</button>
+      </div>
+    </form>
+
+  )
 }
 
 export default search;
