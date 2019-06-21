@@ -5,7 +5,11 @@ export default function TableRow(props){
     return(
         <tbody>
             <tr>
-            {/* map stockinfo array */}
+            {/* {props.stockResults.map(stock=>{
+                <TableRow
+                symbol={props.stockResults.symbol}
+                ></TableRow>
+            })} */}
             </tr>
         </tbody>
     )
