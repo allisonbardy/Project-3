@@ -3,6 +3,9 @@ import { Input, SubmitButton, } from "../Signup"
 import { BrowserRouter as  Redirect } from "react-router-dom";
 import $ from "jquery"
 
+import "./Signup.css"
+
+
 class Signup extends Component {
     state = {
         User: {
@@ -59,29 +62,34 @@ class Signup extends Component {
        return <Redirect to='/'/>;
      }
         return(
-            <div>
-           <Input
-            name = "firstName"
-            placeholder="First Name"
-            onChange={this.handleInputChange}
-            />
-           <Input
-           name = "lastName"
-           placeholder="Last Name"
-           onChange={this.handleInputChange}/>
-           <Input
-           name = "email"
-           placeholder="Email"
-           onChange={this.handleInputChange}/>
-           <Input
-           name = "password"
-           placeholder="password"
-           onChange={this.handleInputChange}
-           type="password"
-           />
-           <SubmitButton
-           onClick={this.handleFormSubmit}/>
-           </div>
+
+            <div className="container">
+                <div className="border-input">
+                    <Input
+                        name = "firstName"
+                        placeholder="First Name"
+                        onChange={this.handleInputChange}
+                    />
+                    <Input
+                        name="lastName"
+                        placeholder="Last Name"
+                        onChange={this.handleInputChange} 
+                    />
+                    <Input
+                        name="email"
+                        placeholder="Email"
+                        onChange={this.handleInputChange} 
+                    />
+                    <Input
+                        name="password"
+                        placeholder="password"
+                        onChange={this.handleInputChange}
+                        type="password"
+                    />
+                    <SubmitButton
+                        onClick={this.handleFormSubmit} />
+                </div>
+
         )
     }
 }
