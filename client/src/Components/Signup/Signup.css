@@ -1,0 +1,17 @@
+.border-input {
+    margin-top: 100px;
+    border: solid 1px;
+    background-color: #d3d3d362;
+    padding: 30px 30px 60px 30px;
+}
+
+.btn {
+    border-radius: 16px;
+    background-color: #ffffff;
+    float: right;
+
+}
+
+.container {
+    width: 65%;
+}

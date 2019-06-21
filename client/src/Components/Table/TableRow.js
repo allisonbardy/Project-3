@@ -1,15 +1,16 @@
 import React from "react"
 
+import "./table.css"
+
+
 
 export default function TableRow(props){
     return(
         <tbody>
             <tr>
-            {/* {props.stockResults.map(stock=>{
-                <TableRow
-                symbol={props.stockResults.symbol}
-                ></TableRow>
-            })} */}
+
+            {/* map stockinfo array */}
+
             </tr>
         </tbody>
     )
