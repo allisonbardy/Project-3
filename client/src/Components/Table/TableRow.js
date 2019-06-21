@@ -2,14 +2,14 @@ import React from "react"
 
 
 export default function TableRow(props){
+    console.log(props)
     return(
+        
         <tbody>
             <tr>
-            {/* {props.stockResults.map(stock=>{
-                <TableRow
-                symbol={props.stockResults.symbol}
-                ></TableRow>
-            })} */}
+            <td>{props.companyName}</td>
+            <td>{props.latestPrice}</td>
+            <td>{props.yearHigh}</td>
             </tr>
         </tbody>
     )
