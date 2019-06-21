@@ -1,18 +1,18 @@
 import React from 'react';
 import './Search.css';
 
-const search = () => {
-  return (
-    <form>
-      <div className="form-group mx-sm-3 mb-2">
-        Search For A Stock <br /><br />
-        <input type="text" placeholder="Search..." />
-        <button className="btn btn-sm" type="button submit">
-        Submit</button>
-      </div>
-    </form>
-
-  )
+const search = (props) => {
+   return (
+    <div className="body">
+      <h2 className="title"> Search For A Stock </h2>
+      <input className="rounded-corners input-large" type="text"  name="symbol" value={props.symbol} onChange={props.change}/>
+        
+      <button className="rounded-corners" onClick={props.submit}> Submit </button> 
+      {props.children}
+    </div>
+    
+    
+   )
 }
 
 export default search;

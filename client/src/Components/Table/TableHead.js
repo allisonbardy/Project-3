@@ -1,8 +1,8 @@
 import React from "react"
-import "../Table/table.css"
+import "./table.css"
 
 
-export default function Portfolio(props){
+export default function TableHead(props){
     return(
         <table className="table">
   <thead>
