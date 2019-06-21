@@ -1,8 +1,10 @@
 import React from "react";
+
 import "./App.css";
 import Menu from './Components/Menu/Menu'
 import Search from "./Components/Searchbar/Search";
 // import Total from "./Components/Total/Total";
+
 import ViewTabs from "./Components/Tabs/ViewsTab";
 import Portfolio from "./Components/Portfolio/Portfolio";
 import NavTabs from "./Components/Nav/Navtabs"
@@ -18,9 +20,11 @@ function App() {
         <NavTabs />
         <Switch>
         <Route exact path="/" component={Menu} />
+
         <Route exact path="/searchbar" component={Menu} />
         <Route exact path="/search" component={Table} />
         {/* <Route exact path="/total" component={Total} /> */}
+
         <Route exact path="/Viewtabs" component={ViewTabs} />
         <Route exact path ="/Portfolio" component={Portfolio} />
         <Route path ="/signup" component={Signup} />

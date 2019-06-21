@@ -2,7 +2,9 @@ import React, { Component } from "react"
 import { Input, SubmitButton, } from "../Signup"
 import { BrowserRouter as  Redirect } from "react-router-dom";
 import $ from "jquery"
+
 import "./Signup.css"
+
 
 class Signup extends Component {
     state = {
@@ -60,6 +62,7 @@ class Signup extends Component {
        return <Redirect to='/'/>;
      }
         return(
+
             <div className="container">
                 <div className="border-input">
                     <Input
@@ -86,7 +89,7 @@ class Signup extends Component {
                     <SubmitButton
                         onClick={this.handleFormSubmit} />
                 </div>
-           </div>
+
         )
     }
 }

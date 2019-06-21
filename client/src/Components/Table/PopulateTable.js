@@ -3,7 +3,9 @@ import { TableRow , TableHead } from "./index"
 import Wrapper from "../Wrapper/Wrapper"
 import Search from "../Searchbar/Search"
 import API from "../../utils/API"
+
 import "./table.css"
+
 
 class Table extends React.Component{
     state ={
@@ -15,7 +17,7 @@ class Table extends React.Component{
     handleInputChange = event=>{
         const {name, value} = event.target
         console.log('this', name, value)
-        // const newState = {...this.state, ...{[name]: value}}
+
 
         this.setState({
             [name]: value
@@ -23,19 +25,25 @@ class Table extends React.Component{
     }
 
 
+
     handleSymbolSearch = event => {
         event.preventDefault()
-        console.log(this.state)
         if(!this.state.symbol){
-            return;
+            return console.log("enter a symbol");
+
         }
         else{
             API.searchStock(this.state.symbol).then(res=>{
                 console.log('API response ', res.data)
+
+                const newState = {...this.state.stockInfo,  ...res.data}
                 this.setState({
-                stockInfo: {...this.state.stockInfo}
+                stockInfo: newState
             })
+            console.log("this is the stockInfo array", this.state.stockInfo)
         })
+        
+
         }
     }
 
@@ -48,7 +56,9 @@ class Table extends React.Component{
             submit={this.handleSymbolSearch}
             symbol={this.state.symbol}>
                 <Wrapper>
+
                     <br/><br/>
+
                     <TableHead>
                         <TableRow
                         stockResults={this.state.stockInfo}
