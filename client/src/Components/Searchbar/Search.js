@@ -2,7 +2,9 @@ import React from 'react';
 import './Search.css';
 
 const search = (props) => {
+  console.log(props)
    return (
+
     <div className="body">
 
       <h2 className="title"> Search For A Stock </h2>

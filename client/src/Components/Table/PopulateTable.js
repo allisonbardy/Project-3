@@ -36,13 +36,14 @@ class Table extends React.Component{
             API.searchStock(this.state.symbol).then(res=>{
                 console.log('API response ', res.data)
 
-                const newState = {...this.state.stockInfo,  ...res.data}
+                const newState = {...this.state.stockInfo,  ...{[this.state.stockInfo]: res.data}}
+
                 this.setState({
                 stockInfo: newState
             })
             console.log("this is the stockInfo array", this.state.stockInfo)
         })
-        
+
 
         }
     }
@@ -55,6 +56,7 @@ class Table extends React.Component{
             change={this.handleInputChange}
             submit={this.handleSymbolSearch}
             symbol={this.state.symbol}>
+
                 <Wrapper>
 
                     <br/><br/>
@@ -62,6 +64,9 @@ class Table extends React.Component{
                     <TableHead>
                         <TableRow
                         stockResults={this.state.stockInfo}
+                        companyName={this.state.stockInfo.companyName}
+                        latestPrice={this.state.stockInfo.latestPrice}
+                        yearhigh={this.state.stockInfo.week52High}
                         >
                         </TableRow>
                     </TableHead>

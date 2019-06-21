@@ -5,11 +5,15 @@ import "./table.css"
 
 
 export default function TableRow(props){
+    console.log(props)
     return(
+        
         <tbody>
             <tr>
 
-            {/* map stockinfo array */}
+            <td>{props.companyName}</td>
+            <td>{props.latestPrice}</td>
+            <td>{props.yearHigh}</td>
 
             </tr>
         </tbody>
