@@ -62,10 +62,21 @@ app.post("/api/users", function(req,res){
   })
 })
 
+
+app.post("/api/owned", function(req, res){
+  db.Owned.create({
+    Owned:req.body.owned
+  })
+})
+
 app.get("/api/users",function(req, res){
   db.User.findAll({}).then(function(data){
     res.json(data)
   })
+})
+
+app.post("/api/signin", function(req,res){
+
 })
 
 

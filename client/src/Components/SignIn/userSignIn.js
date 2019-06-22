@@ -1,36 +1,29 @@
 import React, { Component } from "react"
-import { Input, SubmitButton, } from "../Signup"
+import { Input, SubmitButton, } from "../SignIn"
 import { BrowserRouter as  Redirect } from "react-router-dom";
 import $ from "jquery"
 
-import "./Signup.css"
+import "../Signup/Signup.css"
 
 
-class Signup extends Component {
-    state = {
-        User: {
-        firstName:'',
-        lastName:'',
+class SignIn extends Component {
+    state = {   
         email:'',
         password: ''
-    },
-
-    redirect: false
-}
-
+    }
 
     handleInputChange = event => {
        const {name, value} = event.target
         console.log('here ', name, value)
         // const currState = this.state.User;
-        const newState = {...this.state.User, ...{[name]: value}}
+        const newState = {...this.state, ...{[name]: value}}
         this.setState({
-            User: newState
+            state: newState
         })
     }
 
     submitUserData(User){
-        $.post("/api/users",User,function(req,res){
+        $.post("/api/signin",User,function(req,res){
             console.log("Posted")
         })
     }
@@ -44,40 +37,25 @@ class Signup extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log('i am there', this.state.User)
-        if(!this.state.User.firstName || !this.state.User.lastName || !this.state.User.email || !this.state.User.password){
+        console.log('i am there', this.state)
+        if(!this.state.email || !this.state.password){
             return;
         }
 
         else{
-            console.log('i am here ',this.state.User)
-            this.submitUserData(this.state.User)
+            console.log('i am here ',this.state)
+            this.submitUserData(this.state)
             this.redirectPage()
         }
     }
     render(){
-        const { redirect } = this.state.redirect;
-    console.log('from render ', this.state.User)
-     if (redirect) {
-       return <Redirect to='/'/>;
-     }
-        return(
-
+       
+     
+             return(
+            
             <div className="container">
                 <div className="border-input">
-                    <p className="text-center">Sign Up!</p>
-                    First Name
-                    <Input
-                        name = "firstName"
-                        // placeholder="First Name"
-                        onChange={this.handleInputChange}
-                    />
-                    Last Name
-                    <Input
-                        name="lastName"
-                        // placeholder="Last Name"
-                        onChange={this.handleInputChange} 
-                    />
+                    <p className="text-center">Sign In!</p>
                     Email Address
                     <Input
                         name="email"
@@ -94,12 +72,10 @@ class Signup extends Component {
                     <SubmitButton
                         onClick={this.handleFormSubmit} />
                 </div>
-
-                </div>
-
+            </div>
 
         )
     }
 }
 
-export default Signup
+export default SignIn
