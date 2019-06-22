@@ -5,7 +5,7 @@ import "./table.css"
 
 
 export default function TableRow(props){
-    console.log(props)
+    // console.log(props)
     return(
         
         <tbody>

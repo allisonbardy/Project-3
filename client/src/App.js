@@ -2,7 +2,7 @@ import React from "react";
 
 import "./App.css";
 import Menu from './Components/Menu/Menu'
-import Search from "./Components/Searchbar/Search";
+// import Search from "./Components/Searchbar/Search";
 // import Total from "./Components/Total/Total";
 
 import ViewTabs from "./Components/Tabs/ViewsTab";
