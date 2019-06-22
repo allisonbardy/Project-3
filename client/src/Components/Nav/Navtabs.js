@@ -61,7 +61,7 @@ function NavTabs() {
 
       <li className="nav-item">
         <Link
-          to="portfolio"
+          to="/"
           className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
         >
           Sign Out
