@@ -49,15 +49,9 @@ class SignIn extends Component {
         }
     }
     render(){
-        const { redirect } = this.state.redirect;
-    console.log('from render ', this.state)
-     if (redirect) {
-       return <Redirect to='/'/>;
-     }
         return(
-            
             <div className="container">
-                <div className="border-input">
+                <div className="border-input container">
                     <p className="text-center">Sign In!</p>
                     Email Address
                     <Input
