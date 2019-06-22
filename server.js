@@ -10,6 +10,8 @@ const passport   = require('passport')
 const session    = require('express-session')
 const bodyParser = require('body-parser')
 const authController = require('./controllers/authcontroller.js');
+//Routes
+var authRoute = require('./routes/auth.js')(app, passport);
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,8 +39,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 var models = require("./models");
-//Routes
-var authRoute = require('./routes/auth.js')(app, passport);
+
 
 require('./config/passport.js')(passport, models.user);
 
@@ -75,13 +76,20 @@ app.get("/api/users",function(req, res){
   })
 })
 
+<<<<<<< HEAD
 app.post("/api/signin", function(req,res){
 
 })
 
+=======
+<<<<<<< HEAD
+/* app.get("*", function(req, res) {
+=======
+>>>>>>> e784014411b2714357a8abf3e5baf6ebcc2ac09a
 
 // app.get("*", function(req, res) {
  app.get("*", function(req, res) {
+>>>>>>> 03311236b8f1ab32858984d66f64d180c61068cf
 
   res.sendFile(path.join(__dirname, "./client/public/index.html"));
  }); 
@@ -101,5 +109,9 @@ db.sequelize.sync().then(function(){
  
 }).catch(function(err){
   console.log(err, "Something went wrong with the Database Update!")
+<<<<<<< HEAD
+});
+=======
 })
 
+>>>>>>> 03311236b8f1ab32858984d66f64d180c61068cf
