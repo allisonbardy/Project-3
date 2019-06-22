@@ -2,7 +2,7 @@ import React from 'react';
 import './Search.css';
 
 const search = (props) => {
-  console.log(props)
+  // console.log(props)
    return (
 
     <div className="body">

@@ -89,6 +89,7 @@ class Signup extends Component {
                     <SubmitButton
                         onClick={this.handleFormSubmit} />
                 </div>
+                </div>
 
         )
     }
