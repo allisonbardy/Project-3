@@ -1,7 +1,7 @@
 .border-input {
     margin-top: 100px;
     border: solid 1px;
-    background-color: #d3d3d362;
+    background-color: #e1e1e162;
     padding: 30px 30px 60px 30px;
 }
 
@@ -13,5 +13,5 @@
 }
 
 .container {
-    width: 65%;
+    width: 500px;
 }

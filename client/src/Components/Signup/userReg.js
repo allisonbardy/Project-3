@@ -65,30 +65,36 @@ class Signup extends Component {
 
             <div className="container">
                 <div className="border-input">
+                    <p className="text-center">Sign Up!</p>
+                    First Name
                     <Input
                         name = "firstName"
-                        placeholder="First Name"
+                        // placeholder="First Name"
                         onChange={this.handleInputChange}
                     />
+                    Last Name
                     <Input
                         name="lastName"
-                        placeholder="Last Name"
+                        // placeholder="Last Name"
                         onChange={this.handleInputChange} 
                     />
+                    Email Address
                     <Input
                         name="email"
-                        placeholder="Email"
+                        // placeholder="Email"
                         onChange={this.handleInputChange} 
                     />
+                    Password
                     <Input
                         name="password"
-                        placeholder="password"
+                        // placeholder="password"
                         onChange={this.handleInputChange}
                         type="password"
                     />
                     <SubmitButton
                         onClick={this.handleFormSubmit} />
                 </div>
+            </div>
 
         )
     }
