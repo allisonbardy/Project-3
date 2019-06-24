@@ -1,13 +1,16 @@
 import React, { Component } from "react"
 import { Input, SubmitButton, } from "../Signup"
 
+
 import axios from 'axios';
+
 
 import "./Signup.css"
 
 
 class Signup extends Component {
     state = {
+
         firstName:'',
         lastName:'',
         email:'',
@@ -15,15 +18,19 @@ class Signup extends Component {
 }
 
 
+
     handleInputChange = event => {
-       const {name, value} = event.target
+        const { name, value } = event.target
         console.log('here ', name, value)
         // const currState = this.state.User;
+
         // const newState = {...this.state.User, ...{[name]: value}}
+
         this.setState({
             [name]: value
         })
     }
+
 
     submitUserData(User){
         // $.post("/signup",User,function(req,res){
@@ -35,8 +42,10 @@ class Signup extends Component {
             console.log(res.data)
             if (res.data.message) console.log('SERVER RESPONSE ', res.data.message)
             if (res.data.id) this.props.history.push('/search')
+
         })
     }
+
 
 
     handleFormSubmit = event => {
@@ -56,12 +65,13 @@ class Signup extends Component {
         
         return(
 
+
             <div className="container">
-                <div className="border-input">
+                <div className="border-input container ">
                     <p className="text-center">Sign Up!</p>
                     First Name
                     <Input
-                        name = "firstName"
+                        name="firstName"
                         // placeholder="First Name"
                         onChange={this.handleInputChange}
                     />
@@ -69,13 +79,13 @@ class Signup extends Component {
                     <Input
                         name="lastName"
                         // placeholder="Last Name"
-                        onChange={this.handleInputChange} 
+                        onChange={this.handleInputChange}
                     />
                     Email Address
                     <Input
                         name="email"
                         // placeholder="Email"
-                        onChange={this.handleInputChange} 
+                        onChange={this.handleInputChange}
                     />
                     Password
                     <Input
@@ -88,7 +98,7 @@ class Signup extends Component {
                         onClick={this.handleFormSubmit} />
                 </div>
 
-                </div>
+            </div>
 
 
         )
