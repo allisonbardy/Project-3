@@ -1,6 +1,7 @@
 const authController = require('../controllers/authcontroller.js');
+const passport = require('../config/passport');
 
-module.exports = function(app, passport) {
+module.exports = function(app) {
      
      
     app.get('/signup', authController.signup);
@@ -9,38 +10,51 @@ module.exports = function(app, passport) {
     app.get('/signin', authController.signin);
     
     
-    app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect: '/dashboard',
+    app.post('/signup', function(req, res, next) {
+        passport.authenticate('local-signup', function(err, user, info) {
+            console.log('Info ', info)
+            if (info) {
+                return res.json(info)
+            }
+            console.log(user)
+            res.json(user.get());
+        })(req, res, next);
+    });
     
-            failureRedirect: '/signup'
-        }
     
-    ));
-    
-    
-    app.get('/dashboard', isLoggedIn, authController.dashboard);
+    // app.get('/search', isLoggedIn, authController.dashboard);
     
     
     
     app.get('/logout', authController.logout);
     
+
+    app.post('/signin', function(req,res,next){
+        passport.authenticate('local-signin', function(err, user, info){
+            console.log('Info', info)
+            if(info){
+                return res.json(info)
+            }
+            res.json(user.get())
+        })(req,res,next)
+    })
     
-    app.post('/signin', passport.authenticate('local-signin', {
-            successRedirect: '/dashboard',
+    // app.post('/signin', passport.authenticate('local-signin', {
+    //         successRedirect: '/search',
     
-            failureRedirect: '/signin'
-        }
+    //         failureRedirect: '/signin'
+    //     }
     
-    ));
+    // ));
     
     
     function isLoggedIn(req, res, next) {
     
-        if (req.isAuthenticated())
-    
-            return next();
-    
-        res.redirect('/signin');
+        if (req.isAuthenticated()) {
+            next();
+        } else {
+            res.redirect('/signin');
+        }
     
     }
     
