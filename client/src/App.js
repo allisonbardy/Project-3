@@ -10,8 +10,10 @@ import NavTabs from "./Components/Nav/Navtabs"
 import {Table} from './Components/Table/index';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Signup from "./Components/Signup/"
+
 import Signin from "./Components/SignIn/"
 import Watchlist from "./Components/Watchlist/"
+
 
 function App() {
   return (
@@ -29,7 +31,9 @@ function App() {
         <Route exact path="/Viewtabs" component={ViewTabs} />
         <Route exact path ="/Portfolio" component={Portfolio} />
         <Route path ="/signup" component={Signup} />
+
         <Route path ="/signin" component={Signin} />
+
         </Switch>
       </div>
     </Router>

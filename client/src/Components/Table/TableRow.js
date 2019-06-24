@@ -3,6 +3,7 @@ import "./table.css"
 
 
 
+
 export default function TableRow(props) {
     // console.log(props)
     return (
@@ -12,6 +13,7 @@ export default function TableRow(props) {
                 <td>{props.companyName}</td>
                 <td>{props.latestPrice}</td>
                 <td>{props.yearHigh}</td>
+
             </tr>
         </tbody>
     )

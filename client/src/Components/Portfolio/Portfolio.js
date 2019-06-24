@@ -2,6 +2,7 @@ import React from "react"
 import "../Table/table.css"
 import "./Portfolio.css"
 
+
 export default function Portfolio(props) {
    return (
       <div className="container user">
@@ -20,4 +21,5 @@ export default function Portfolio(props) {
          </table>
       </div>
    )
+
 }

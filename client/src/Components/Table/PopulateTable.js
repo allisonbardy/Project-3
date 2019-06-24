@@ -55,16 +55,14 @@ class Table extends React.Component{
 
     render(){
         return(
-        
+        <ApiContext.Provider value={this.state}>
             <Search 
             change={this.handleInputChange}
             submit={this.handleSymbolSearch}
             symbol={this.state.symbol}>
-
                 <Wrapper>
-
-                    <br/><br/>
-
+                    <br/>
+                    <br/>
                     <TableHead>
                         <TableRow
                         stockResults={this.state.stockInfo}
@@ -76,7 +74,7 @@ class Table extends React.Component{
                     </TableHead>
                 </Wrapper>
             </Search>
-            
+            </ApiContext.Provider>
         )
     }
 }
