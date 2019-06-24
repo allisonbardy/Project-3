@@ -1,6 +1,5 @@
 import React from "react"
-import "./table.css"
-
+import "./Table/table.css"
 
 
 
@@ -13,7 +12,6 @@ export default function TableRow(props) {
                 <td>{props.companyName}</td>
                 <td>{props.latestPrice}</td>
                 <td>{props.yearHigh}</td>
-
             </tr>
         </tbody>
     )
