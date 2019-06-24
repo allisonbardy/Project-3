@@ -47,12 +47,11 @@ class SignIn extends Component {
         }
     }
     render(){
-       
-     
-             return(
-            
+
+        return(
+>
             <div className="container">
-                <div className="border-input">
+                <div className="border-input container">
                     <p className="text-center">Sign In!</p>
                     Email Address
                     <Input
