@@ -11,6 +11,8 @@ export default function TableRow(props){
             <td>{props.companyName}</td>
             <td>{props.latestPrice}</td>
             <td>{props.yearHigh}</td>
+            <butto></butto>
+            butto
             </tr>
         </tbody>
     )
