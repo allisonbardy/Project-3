@@ -3,7 +3,7 @@ var React = require('react');
 class SignUp extends React.Component {
   render() {
     return (
-    <form id="signup" name="signup" method="post" action="/signup">
+    <form id="signup" name="signup" method="post" action="/api/signup">
         <label htmlFor="email">Email Address</label>
         <input className="text" name="email" type="email" />
         <label htmlFor="firstname">Firstname</label>

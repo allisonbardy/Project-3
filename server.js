@@ -31,16 +31,22 @@ app.engine('jsx', require('express-react-views').createEngine());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+// require('./config/passport.js')(passport, models.user);
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
 var models = require("./models");
-//Routes
-var authRoute = require('./routes/auth.js')(app, passport);
+//
 
-require('./config/passport.js')(passport, models.user);
+require('./routes/auth.js')(app);
+
+// app.use(authRoute)
 
 // Send every request to the React app
 // Define any API routes before this runs
@@ -62,10 +68,29 @@ app.post("/api/users", function(req,res){
   })
 })
 
+
+app.post("/api/owned", function(req, res){
+  db.Owned.create({
+    Owned:req.body.owned
+  })
+})
+
+app.get("/api/owned/:id", function(req,res){
+  db.Owned.findAll({
+    where:{
+      id
+    }
+  })
+})
+
 app.get("/api/users",function(req, res){
   db.User.findAll({}).then(function(data){
     res.json(data)
   })
+})
+
+app.post("/api/signin", function(req,res){
+
 })
 
 

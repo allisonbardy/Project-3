@@ -1,21 +1,17 @@
 import React, { Component } from "react"
 import { Input, SubmitButton, } from "../Signup"
-import { BrowserRouter as  Redirect } from "react-router-dom";
-import $ from "jquery"
+
+import axios from 'axios';
 
 import "./Signup.css"
 
 
 class Signup extends Component {
     state = {
-        User: {
         firstName:'',
         lastName:'',
         email:'',
         password: ''
-    },
-
-    redirect: false
 }
 
 
@@ -23,72 +19,77 @@ class Signup extends Component {
        const {name, value} = event.target
         console.log('here ', name, value)
         // const currState = this.state.User;
-        const newState = {...this.state.User, ...{[name]: value}}
+        // const newState = {...this.state.User, ...{[name]: value}}
         this.setState({
-            User: newState
+            [name]: value
         })
     }
 
     submitUserData(User){
-        $.post("/api/users",User,function(req,res){
-            console.log("Posted")
+        // $.post("/signup",User,function(req,res){
+        //     console.log(res)
+        // })
+        axios.post('/signup', User)
+        .then(res => {
+            //check res object
+            console.log(res.data)
+            if (res.data.message) console.log('SERVER RESPONSE ', res.data.message)
+            if (res.data.id) this.props.history.push('/search')
         })
     }
 
-
-    redirectPage(){
-        this.setState({
-            redirect: true
-        })
-    }
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log('i am there', this.state.User)
-        if(!this.state.User.firstName || !this.state.User.lastName || !this.state.User.email || !this.state.User.password){
+        console.log('i am there', this.state)
+        if(!this.state.firstName || !this.state.lastName || !this.state.email || !this.state.password){
             return;
         }
 
         else{
-            console.log('i am here ',this.state.User)
-            this.submitUserData(this.state.User)
-            this.redirectPage()
+            console.log('i am here ',this.state)
+            this.submitUserData(this.state)
+            // this.redirectPage()
         }
     }
     render(){
-        const { redirect } = this.state.redirect;
-    console.log('from render ', this.state.User)
-     if (redirect) {
-       return <Redirect to='/'/>;
-     }
+        
         return(
 
             <div className="container">
                 <div className="border-input">
+                    <p className="text-center">Sign Up!</p>
+                    First Name
                     <Input
                         name = "firstName"
-                        placeholder="First Name"
+                        // placeholder="First Name"
                         onChange={this.handleInputChange}
                     />
+                    Last Name
                     <Input
                         name="lastName"
-                        placeholder="Last Name"
+                        // placeholder="Last Name"
                         onChange={this.handleInputChange} 
                     />
+                    Email Address
                     <Input
                         name="email"
-                        placeholder="Email"
+                        // placeholder="Email"
                         onChange={this.handleInputChange} 
                     />
+                    Password
                     <Input
                         name="password"
-                        placeholder="password"
+                        // placeholder="password"
                         onChange={this.handleInputChange}
                         type="password"
                     />
                     <SubmitButton
                         onClick={this.handleFormSubmit} />
                 </div>
+
+                </div>
+
 
         )
     }

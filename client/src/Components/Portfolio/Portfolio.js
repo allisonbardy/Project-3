@@ -2,6 +2,7 @@ import React from "react"
 import "../Table/table.css"
 
 
+
 export default function Portfolio(props){
     return(
         <table className="table">

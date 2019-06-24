@@ -3,6 +3,7 @@ import { TableRow , TableHead } from "./index"
 import Wrapper from "../Wrapper/Wrapper"
 import Search from "../Searchbar/Search"
 import API from "../../utils/API"
+import ApiContext from "../ApiContext/APIContext" 
 
 import "./table.css"
 
@@ -16,7 +17,7 @@ class Table extends React.Component{
 
     handleInputChange = event=>{
         const {name, value} = event.target
-        console.log('this', name, value)
+        
 
 
         this.setState({
@@ -29,17 +30,20 @@ class Table extends React.Component{
     handleSymbolSearch = event => {
         event.preventDefault()
         if(!this.state.symbol){
-            return console.log("enter a symbol");
+            return ;
 
         }
         else{
             API.searchStock(this.state.symbol).then(res=>{
-                console.log('API response ', res.data)
+            // let newState = {...this.state.stockInfo,  [this.state.stockInfo]: res.data}
+                this.state.stockInfo.push(res.data)
+            //     this.setState({
+            //     stockInfo: newState
+            // })
+            const stockData = this.state.stockInfo
 
-                const newState = {...this.state.stockInfo,  ...{[this.state.stockInfo]: res.data}}
-
-                this.setState({
-                stockInfo: newState
+            this.setState({
+                stockInfo:stockData
             })
             console.log("this is the stockInfo array", this.state.stockInfo)
         })
@@ -51,16 +55,14 @@ class Table extends React.Component{
 
     render(){
         return(
-
+        <ApiContext.Provider value={this.state}>
             <Search 
             change={this.handleInputChange}
             submit={this.handleSymbolSearch}
             symbol={this.state.symbol}>
-
                 <Wrapper>
-
-                    <br/><br/>
-
+                    <br/>
+                    <br/>
                     <TableHead>
                         <TableRow
                         stockResults={this.state.stockInfo}
@@ -72,7 +74,7 @@ class Table extends React.Component{
                     </TableHead>
                 </Wrapper>
             </Search>
-            
+            </ApiContext.Provider>
         )
     }
 }
