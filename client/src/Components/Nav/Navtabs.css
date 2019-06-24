@@ -9,3 +9,6 @@
 /* .active {
     font-size: .9rem;
 } */
+.grad {
+    background-image: linear-gradient(to bottom right, #2dcea3, rgb(60, 236, 255));
+}
