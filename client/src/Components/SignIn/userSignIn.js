@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import { Input, SubmitButton, } from "../SignIn"
-import { BrowserRouter as  Redirect } from "react-router-dom";
-import $ from "jquery"
+import axios from 'axios'
 
 import "../Signup/Signup.css"
+
 
 
 class SignIn extends Component {
@@ -16,24 +16,22 @@ class SignIn extends Component {
        const {name, value} = event.target
         console.log('here ', name, value)
         // const currState = this.state.User;
-        const newState = {...this.state, ...{[name]: value}}
         this.setState({
-            state: newState
+            [name]: value
         })
     }
 
-    submitUserData(User){
-        $.post("/api/signin",User,function(req,res){
-            console.log("Posted")
+    checkSignin(User){
+        axios.post('/signin', User)
+        .then(res=>{
+            console.log(res.data)
+            if (res.data.message) console.log('SERVER RESPONSE', res.data.message)
+            if (res.data.id) this.props.history.push('/search')
         })
     }
 
 
-    redirectPage(){
-        this.setState({
-            redirect: true
-        })
-    }
+    
 
     handleFormSubmit = event => {
         event.preventDefault();
@@ -44,12 +42,14 @@ class SignIn extends Component {
 
         else{
             console.log('i am here ',this.state)
-            this.submitUserData(this.state)
-            this.redirectPage()
+            this.checkSignin(this.state)
+           
         }
     }
     render(){
+
         return(
+>
             <div className="container">
                 <div className="border-input container">
                     <p className="text-center">Sign In!</p>

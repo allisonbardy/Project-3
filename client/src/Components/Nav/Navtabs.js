@@ -68,6 +68,15 @@ function NavTabs() {
         </Link>
       </li>
 
+      <li className="nav-item">
+       <Link
+         to="/signin"
+         className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
+       >
+         Sign In
+       </Link>
+     </li>
+
     </ul>
   );
 }
