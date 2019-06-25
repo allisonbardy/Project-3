@@ -5,7 +5,7 @@ import PortfolioNav from "../Components/Nav/PortfolioNav";
 function PortfolioPage() {
   return (
       <div>
-        <PortfolioNav />,
+        <PortfolioNav />
     </div>
 
   );
