@@ -64,6 +64,10 @@ class Table extends React.Component{
                     <br/>
                     <br/>
                     <TableHead>
+                        {/* insert a .map here */}
+                        {this.state.stockInfo.map = (TableRow) => {
+                            console.log(TableRow);
+                        }}
                         <TableRow
                         stockResults={this.state.stockInfo}
                         companyName={this.state.stockInfo.companyName}
