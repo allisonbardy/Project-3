@@ -6,7 +6,7 @@ import Search from "../Components/Searchbar/Search";
 function SearchPage() {
   return (
       <div>
-        <SearchNav />,
+        <SearchNav />
         <Search />
     </div>
 

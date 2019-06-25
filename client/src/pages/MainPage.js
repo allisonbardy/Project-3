@@ -5,7 +5,7 @@ import MainNav from "../Components/Nav/MainNav";
 function MainPage() {
   return (
       <div>
-        <MainNav />,
+        <MainNav />
     </div>
 
   );
