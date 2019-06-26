@@ -1,23 +1,32 @@
 import React from "react"
 import "./table.css"
-
+// import ApiContext from "../ApiContext/APIContext"
 
 
 
 export default function TableRow(props) {
-    // console.log(props)
+   
     return (
-
-        <tbody>
-            <tr>
-                <td>{props.companyName}</td>
-                <td>{props.latestPrice}</td>
-                <td>{props.yearHigh}</td>
-
-            </tr>
-        </tbody>
-    )
-}
+        // <ApiContext.Consumer>
+        //     {({ stock })=>(
+                
+                 <tbody>
+                 <tr>
+                     <td>{props.name}</td>
+                     <td>{props.open}</td>
+                     <td>{props.latestPrice}</td>
+                     <td>{props.change}</td>
+                     <td>{props.volume}</td>
+                     <td><button onClick={() => props.ownOnClick(props.index)}></button></td>
+                     <td><button onClick={() => props.watchOnClick(props.index)}></button></td>
+                 </tr>
+             </tbody>
+             
+            )
+            // </ApiContext.Consumer>
+        
+    
+          }      // }          
 
 
 

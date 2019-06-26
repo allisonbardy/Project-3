@@ -54,7 +54,6 @@ require('./routes/auth.js')(app);
 
 
 
-
 app.post("/api/users", function(req,res){
   console.log(req.body)
   db.User.create({
@@ -71,17 +70,18 @@ app.post("/api/users", function(req,res){
 
 app.post("/api/owned", function(req, res){
   db.Owned.create({
-    Owned:req.body.owned
+    symbol:req.body.symbol,
+    UserId: req.user.id
   })
 })
 
-app.get("/api/owned/:id", function(req,res){
-  db.Owned.findAll({
-    where:{
-      id
-    }
+app.post('/api/watched', function(req, res){
+  db.Watched.create({
+    symbol: req.body.symbol,
+    UserId: req.user.id
   })
 })
+
 
 app.get("/api/users",function(req, res){
   db.User.findAll({}).then(function(data){
@@ -89,9 +89,36 @@ app.get("/api/users",function(req, res){
   })
 })
 
-app.post("/api/signin", function(req,res){
-
+app.get('/api/users/owned', function(req, res){
+  db.Owned.findAll({
+    where:{
+      UserId: req.user.id
+    }
+  }).then(function(data){
+    res.json(data)
+  })
 })
+
+app.get("/api/users/watched", function(req, res){
+  db.Watched.findAll({
+    where:{
+      UserId: req.user.id
+    }
+  }).then(function(data){
+    res.json(data)
+  })
+})
+
+app.get("/api/currentUser", function(req, res){
+  db.User.findOne({
+    where:{
+      id: req.user.id
+    }
+  }).then(function(data){
+    res.json(data)
+  })
+})
+
 
 
 // app.get("*", function(req, res) {
