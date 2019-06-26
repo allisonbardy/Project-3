@@ -10,8 +10,6 @@ const passport   = require('passport')
 const session    = require('express-session')
 const bodyParser = require('body-parser')
 const authController = require('./controllers/authcontroller.js');
-//Routes
-var authRoute = require('./routes/auth.js')(app, passport);
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,15 +31,22 @@ app.engine('jsx', require('express-react-views').createEngine());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+// require('./config/passport.js')(passport, models.user);
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
 var models = require("./models");
+//
 
+require('./routes/auth.js')(app);
 
-require('./config/passport.js')(passport, models.user);
+// app.use(authRoute)
 
 // Send every request to the React app
 // Define any API routes before this runs
@@ -63,10 +68,29 @@ app.post("/api/users", function(req,res){
   })
 })
 
+
+app.post("/api/owned", function(req, res){
+  db.Owned.create({
+    Owned:req.body.owned
+  })
+})
+
+app.get("/api/owned/:id", function(req,res){
+  db.Owned.findAll({
+    where:{
+      id
+    }
+  })
+})
+
 app.get("/api/users",function(req, res){
   db.User.findAll({}).then(function(data){
     res.json(data)
   })
+})
+
+app.post("/api/signin", function(req,res){
+
 })
 
 
@@ -91,8 +115,5 @@ db.sequelize.sync().then(function(){
  
 }).catch(function(err){
   console.log(err, "Something went wrong with the Database Update!")
-
-});
-
-
+})
 

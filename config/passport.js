@@ -3,11 +3,12 @@
  const User = require("../../Project3/models").User;
  var passport = require('passport')
 
+ var LocalStrategy = require('passport-local').Strategy;
 
- module.exports = function(passport){
+//  module.expor/ts = function(){
 
  // var User = user;
- var LocalStrategy = require('passport-local').Strategy;
+
 
 
  passport.serializeUser(function(user, done) {
@@ -39,7 +40,7 @@
    },
 
    function(req, email, password, done){
-
+    console.log(email, password)
      var generateHash = function(password) {
      return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
      };
@@ -102,12 +103,12 @@ console.log('test2', data)
 
    //var User = user;
     console.log(email);
-   var isValidPassword = function(userpass,password){
-     return bCrypt.compareSync(password, userpass);
-   }
+  
    User.findOne({ where : { email: email}}).then(function (user) {
      //console.log(user);
-
+     var isValidPassword = function(userpass,password){
+      return bCrypt.compareSync(password, userpass);
+    }
      if (!user) {
        console.log("Email does not exist")
        return done(null, false, { message: 'Email does not exist' });
@@ -137,4 +138,5 @@ console.log('test2', data)
  }
  ));
 
- }
+//  }
+module.exports = passport;
