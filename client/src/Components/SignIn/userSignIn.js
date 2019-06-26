@@ -30,9 +30,6 @@ class SignIn extends Component {
         })
     }
 
-
-    
-
     handleFormSubmit = event => {
         event.preventDefault();
         console.log('i am there', this.state)
@@ -70,7 +67,6 @@ class SignIn extends Component {
                         onClick={this.handleFormSubmit} />
                 </div>
             </div>
-
         )
     }
 }
