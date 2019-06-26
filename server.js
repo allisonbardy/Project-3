@@ -49,7 +49,6 @@ require('./config/passport.js')(passport, models.user);
 
 
 
-
 app.post("/api/users", function(req,res){
   console.log(req.body)
   db.User.create({
@@ -63,11 +62,64 @@ app.post("/api/users", function(req,res){
   })
 })
 
+<<<<<<< HEAD
+=======
+
+app.post("/api/owned", function(req, res){
+  db.Owned.create({
+    symbol:req.body.symbol,
+    UserId: req.user.id
+  })
+})
+
+app.post('/api/watched', function(req, res){
+  db.Watched.create({
+    symbol: req.body.symbol,
+    UserId: req.user.id
+  })
+})
+
+
+>>>>>>> a7006e34b4df78d79c3dcd7a8fb9eb80bf677d03
 app.get("/api/users",function(req, res){
   db.User.findAll({}).then(function(data){
     res.json(data)
   })
 })
+
+<<<<<<< HEAD
+=======
+app.get('/api/users/owned', function(req, res){
+  db.Owned.findAll({
+    where:{
+      UserId: req.user.id
+    }
+  }).then(function(data){
+    res.json(data)
+  })
+})
+
+app.get("/api/users/watched", function(req, res){
+  db.Watched.findAll({
+    where:{
+      UserId: req.user.id
+    }
+  }).then(function(data){
+    res.json(data)
+  })
+})
+
+app.get("/api/currentUser", function(req, res){
+  db.User.findOne({
+    where:{
+      id: req.user.id
+    }
+  }).then(function(data){
+    res.json(data)
+  })
+})
+
+>>>>>>> a7006e34b4df78d79c3dcd7a8fb9eb80bf677d03
 
 
 // app.get("*", function(req, res) {

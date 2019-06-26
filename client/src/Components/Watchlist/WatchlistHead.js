@@ -1,10 +1,10 @@
 import React from "react"
 
-import "./Table/table.css"
+import "./Watchlist.css"
 
 
 
-export default function TableHead(props){
+export default function WatchlistHead(props){
     return(
         <table className="table">
   <thead>

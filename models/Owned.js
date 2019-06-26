@@ -1,9 +1,19 @@
 module.exports = function(sequelize, Datatypes){
     let Owned = sequelize.define("Owned",{
-        Owned:{
-            type: Datatypes.TEXT,
-            allowNull: true
+        symbol:{
+            type: Datatypes.STRING,
+            allowNull: false
         }
+        
+
+
+
     })
+    Owned.associate= function(models){
+        Owned.belongsTo(models.User,{
+            foreign: 'user',
+            allowNull:false
+        })
+    }
     return Owned
 }
