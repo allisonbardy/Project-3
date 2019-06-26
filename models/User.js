@@ -40,9 +40,13 @@ module.exports =function(sequelize, Datatypes){
         }
     });
      
-    // User.associate = function(models){
-    //     User.hasMany(models.Watched)
-    // }
+    User.associate = function(models){
+        User.hasMany(models.Owned)
+    }
+
+    User.associate=function(models){
+        User.hasMany(models.Watched)
+    }
 
     return User
 };

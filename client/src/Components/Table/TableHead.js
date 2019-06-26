@@ -10,11 +10,13 @@ export default function TableHead(props){
   <thead>
     <tr>
 
-      <th scope="col">Stock Name</th>
-      <th scope="col">Quantity</th>
+      <th scope="col">Company Name</th>
+      <th scope="col">Open</th>
+      <th scope="col">Latest Price</th>
       <th scope="col">Change</th>
-      <th scope="col">% Change</th>
-      <th scope="col">Volume</th>
+      <th scope='col'>Volume</th>
+      <th scope="col">Add to portfolio</th>
+      <th scope="col">Save to Watchlist</th>
 
     </tr>
   </thead>

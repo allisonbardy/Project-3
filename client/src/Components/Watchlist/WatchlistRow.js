@@ -1,9 +1,9 @@
 import React from "react"
-import "./Table/table.css"
+import "./Watchlist.css"
 
 
 
-export default function TableRow(props) {
+export default function WatchlistRow(props) {
     // console.log(props)
     return (
 

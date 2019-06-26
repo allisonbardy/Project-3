@@ -16,8 +16,11 @@ module.exports = function(app) {
             if (info) {
                 return res.json(info)
             }
-            console.log(user)
-            res.json(user.get());
+            req.logIn(user, function(err) {
+                console.log('USER ', user)
+                res.json(user)
+                
+            })
         })(req, res, next);
     });
     
@@ -35,7 +38,10 @@ module.exports = function(app) {
             if(info){
                 return res.json(info)
             }
-            res.json(user.get())
+            req.logIn(user, function(err){
+                console.log('USER', user)
+                res.json(user)
+            })
         })(req,res,next)
     })
     

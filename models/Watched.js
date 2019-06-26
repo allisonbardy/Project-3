@@ -1,9 +1,15 @@
 module.exports = function(sequelize, Datatypes){
     let Watched = sequelize.define("Watched",{
-        Watched:{
-            type: Datatypes.TEXT,
-            allowNull: true
+        symbol:{
+            type: Datatypes.STRING,
+            allowNull: false
         }
     })
+    Watched.associate= function(models){
+        Watched.belongsTo(models.User,{
+            foreign: 'user',
+            allowNull:false
+        })
+    }
     return Watched
 }

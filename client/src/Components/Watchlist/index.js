@@ -1,9 +1,9 @@
-// import TableHead from"./TableHead"
-// import TableRow from "./TableRow"
-// import Table from "./PopulateTable"
+import WatchlistHead from"./WatchlistHead"
+import WatchlistRow from "./WatchlistRow"
+import Watchlist from "./Watchlist"
 
 
 
 
-// export default { Table, TableHead, TableRow };
+export { Watchlist, WatchlistHead, WatchlistRow };
 
