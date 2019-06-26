@@ -62,8 +62,6 @@ app.post("/api/users", function(req,res){
   })
 })
 
-<<<<<<< HEAD
-=======
 
 app.post("/api/owned", function(req, res){
   db.Owned.create({
@@ -80,15 +78,12 @@ app.post('/api/watched', function(req, res){
 })
 
 
->>>>>>> a7006e34b4df78d79c3dcd7a8fb9eb80bf677d03
 app.get("/api/users",function(req, res){
   db.User.findAll({}).then(function(data){
     res.json(data)
   })
 })
 
-<<<<<<< HEAD
-=======
 app.get('/api/users/owned', function(req, res){
   db.Owned.findAll({
     where:{
@@ -119,7 +114,6 @@ app.get("/api/currentUser", function(req, res){
   })
 })
 
->>>>>>> a7006e34b4df78d79c3dcd7a8fb9eb80bf677d03
 
 
 // app.get("*", function(req, res) {
