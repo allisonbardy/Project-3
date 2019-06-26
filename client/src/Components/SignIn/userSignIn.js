@@ -16,22 +16,14 @@ class SignIn extends Component {
        const {name, value} = event.target
         console.log('here ', name, value)
         // const currState = this.state.User;
-        const newState = {...this.state, ...{[name]: value}}
         this.setState({
-            state: newState
+            [name]: value
         })
     }
 
     submitUserData(User){
         $.post("/api/signin",User,function(req,res){
             console.log("Posted")
-        })
-    }
-
-
-    redirectPage(){
-        this.setState({
-            redirect: true
         })
     }
 
@@ -45,7 +37,6 @@ class SignIn extends Component {
         else{
             console.log('i am here ',this.state)
             this.submitUserData(this.state)
-            this.redirectPage()
         }
     }
     render(){
@@ -70,7 +61,6 @@ class SignIn extends Component {
                         onClick={this.handleFormSubmit} />
                 </div>
             </div>
-
         )
     }
 }
