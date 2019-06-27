@@ -1,5 +1,7 @@
-.user {
-    padding-top: 60px;
-    font-size: 32px;
-    font-weight: bolder;
+.tableMain{
+    padding: 10px;
+}
+
+.tableHead{
+    background-color:#ff914d;
 }

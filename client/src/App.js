@@ -1,36 +1,24 @@
-import React from "react";
+import React, { Component } from "react";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Menu from "./Components/Nav/Navtabs"
+import Menu from './Components/Menu/Menu'
+import Search from "./Components/Searchbar/Search";
+import Total from "./Components/Total/Total";
 import ViewTabs from "./Components/Tabs/ViewsTab";
-import { Portfolio }from "./Components/Portfolio/index";
-import {Table} from './Components/Table/index';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Signup from "./Components/Signup/"
-import { Watchlist } from "./Components/Watchlist/index"
-import Signin from "./Components/SignIn/"
-import PortfolioPage from './pages/PortfolioPage'
-import SearchPage from "./pages/SearchPage";
-import MainPage from "./pages/MainPage";
+import Portfolio from "./Components/Portfolio/Portfolio";
 
-
-
-function App() {
-  return (
-    
-    <Router>
-      <div>
-        <Switch>
-        <Route exact path="/" component={MainPage} />
-        <Route exact path="/search" component={SearchPage} />
-        <Route path ="/watchlist" component={Watchlist} />
-        <Route exact path="/Viewtabs" component={ViewTabs} />
-        <Route exact path ="/Portfolio" component={PortfolioPage} />
-        <Route path ="/signup" component={Signup} />
-        <Route path ="/signin" component={Signin} />
-        </Switch>
-      </div>
-    </Router>
-  );
+class App extends Component {
+  render() {
+    return (
+    <div>
+      <Menu />
+      <Search />
+      <ViewTabs /> 
+      <Total />
+      <Portfolio />
+    </div>
+    )
+  }
 }
 
 export default App;
