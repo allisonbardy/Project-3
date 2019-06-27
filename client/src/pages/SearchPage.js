@@ -1,17 +1,6 @@
 import React from "react";
 import SearchNav from "../Components/Nav/SearchNav";
 import Search from "../Components/Searchbar/Search";
-<<<<<<< Updated upstream
-import { Table } from "../Components/Table";
-
-
-
-function SearchPage(props) {
-  return (
-      <div>
-        <SearchNav />
-       <Table/>
-=======
 
 
 function SearchPage() {
@@ -19,7 +8,6 @@ function SearchPage() {
       <div>
         <SearchNav />
         <Search />
->>>>>>> Stashed changes
     </div>
 
   );
