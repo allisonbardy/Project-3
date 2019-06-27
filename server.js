@@ -12,6 +12,16 @@ const bodyParser = require('body-parser')
 const authController = require('./controllers/authcontroller.js');
 
 
+app.post("./models/Watched.js", function(owned) {
+  console.log("")
+})
+  
+app.post("/models/Owned.js", function(watched) {
+  console.log("")
+})
+// two functions that post to the database, based on our models folder, one that posts
+// stocked owned and one that posted a watch list.
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
