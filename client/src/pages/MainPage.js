@@ -1,13 +1,13 @@
 import React from "react";
 import MainNav from "../Components/Nav/MainNav";
-import Menu from "../Components/Menu/Menu";
+import Main from "../Components/Main/Main";
 
 
 function MainPage() {
   return (
       <div>
         <MainNav />
-        <Menu />
+        <Main/>
     </div>
 
   );

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react"
 
-import "../Menu/Menu.css"
+import "./Menu.css"
 
 function GetStartedButton(props){
   return (

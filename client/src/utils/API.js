@@ -4,10 +4,24 @@ export default
 
 {
     searchStock: function(query){
-        return axios.get("https://sandbox.iexapis.com/stable/stock/" + query + "/quote?token=Tpk_0493e81400594763aaba4ffb2b0eb5a7")
+        return axios.get("https://sandbox.iexapis.com/stable/stock/" + query + "/quote/?token=Tpk_0493e81400594763aaba4ffb2b0eb5a7")
     },
    
-    getOwnedStocks: function(){
-        return axios.get("/api/users/stocks")
+    getDividends5y: function(query){
+        return axios.get("https://sandbox.iexapis.com/stable/stock/" + query + "/dividends/5y?token=Tpk_0493e81400594763aaba4ffb2b0eb5a7")
+    },
+
+    getOwned: function(){
+        return axios.get('/api/users/owned')
+    },
+
+    getWatched: function(){
+        return axios.get('/api/users/watched')
+    },
+
+    getCurrUser: function(){
+        return axios.get('/api/currentUser')
     }
+
+    
 }

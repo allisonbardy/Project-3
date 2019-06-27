@@ -3,15 +3,17 @@ import { TableRow , TableHead } from "./index"
 import Wrapper from "../Wrapper/Wrapper"
 import Search from "../Searchbar/Search"
 import API from "../../utils/API"
-import ApiContext from "../ApiContext/APIContext" 
+
 
 import "./table.css"
+import axios from "axios";
 
 
 class Table extends React.Component{
     state ={
         symbol:'',
-        stockInfo:[]
+        stockInfo:[],
+        divInfo:[]
     }
 
 
@@ -25,37 +27,71 @@ class Table extends React.Component{
         })
     }
 
-
+    
 
     handleSymbolSearch = event => {
         event.preventDefault()
         if(!this.state.symbol){
             return ;
-
         }
         else{
             API.searchStock(this.state.symbol).then(res=>{
-            // let newState = {...this.state.stockInfo,  [this.state.stockInfo]: res.data}
-                this.state.stockInfo.push(res.data)
-            //     this.setState({
-            //     stockInfo: newState
-            // })
-            const stockData = this.state.stockInfo
-
             this.setState({
-                stockInfo:stockData
+                stockInfo:[...this.state.stockInfo, res.data]
+            })
+            API.getDividends5y(this.state.symbol).then(res=>{
+                this.setState({
+                    divInfo:[...this.state.divInfo, res.data]
+                })
             })
             console.log("this is the stockInfo array", this.state.stockInfo)
+            console.log('this is the divInfo array', this.state.divInfo)
         })
 
 
         }
     }
 
+    ownOnClick = stockIdx => {
+        // console.log(this.state.stockInfo[stockIdx])
+        const stock= this.state.stockInfo[stockIdx]
+        console.log(stock.symbol)
+
+        let newOwned={
+            symbol:stock.symbol,
+        }  
+
+        this.submitOwned(newOwned)
+    }
+
+
+        submitOwned(Stock){
+    axios.post("/api/owned", Stock, function(req,res){
+            console.log("Posted to Portfolio")
+    })
+}
+
+
+    watchOnClick = stockIdx=>{
+        const stock = this.state.stockInfo[stockIdx]
+        
+        let newWatched = {
+            symbol: stock.symbol,
+        }
+        
+        this.submitWatched(newWatched)
+    }
+
+
+        submitWatched(Stock){
+            axios.post('/api/watched', Stock, function(req, res){
+                console.log('Posted to Watchlist!')
+            })
+        }
 
     render(){
         return(
-        <ApiContext.Provider value={this.state}>
+        // <ApiContext.Provider value={this.state.stockInfo}>
             <Search 
             change={this.handleInputChange}
             submit={this.handleSymbolSearch}
@@ -64,17 +100,24 @@ class Table extends React.Component{
                     <br/>
                     <br/>
                     <TableHead>
-                        <TableRow
-                        stockResults={this.state.stockInfo}
-                        companyName={this.state.stockInfo.companyName}
-                        latestPrice={this.state.stockInfo.latestPrice}
-                        yearhigh={this.state.stockInfo.week52High}
-                        >
-                        </TableRow>
+                        {this.state.stockInfo.map((stock, idx)=>(
+                            <TableRow
+                            key={stock.symbol}
+                            name={stock.companyName}
+                            open={stock.open}
+                            latestPrice={stock.latestPrice}
+                            change={stock.changePercent}
+                            volume={stock.latestVolume}
+                            index={idx}
+                            ownOnClick={this.ownOnClick}
+                            watchOnClick={this.watchOnClick}
+                            
+                            />
+                        ))}
                     </TableHead>
                 </Wrapper>
             </Search>
-            </ApiContext.Provider>
+            // </ApiContext.Provider>
         )
     }
 }
