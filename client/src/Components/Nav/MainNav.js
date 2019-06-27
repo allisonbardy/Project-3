@@ -11,7 +11,11 @@ function MainNav() {
           D I V P O R T F O L . I O 
         </Link>
       </li>
+<<<<<<< Updated upstream
       <li className="nav-item">
+=======
+      <li className="nav-item ml-auto">
+>>>>>>> Stashed changes
         <Link
           to="/signin"
           className={window.location.pathname === "/signin" ? "nav-link active" : "nav-link"}

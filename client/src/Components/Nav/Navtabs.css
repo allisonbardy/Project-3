@@ -11,4 +11,10 @@
 } */
 .grad {
     background-image: linear-gradient(to bottom right, #2dcea3, rgb(60, 236, 255));
+<<<<<<< Updated upstream
+=======
+}
+body {    
+    background-image: url("https://images.pexels.com/photos/304664/pexels-photo-304664.jpeg?cs=srgb&dl=blue-close-up-concrete-304664.jpg&fm=jpg");
+>>>>>>> Stashed changes
 }

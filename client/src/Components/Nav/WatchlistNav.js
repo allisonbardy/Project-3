@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Navtabs.css"
 
-function SearchNav() {
+function WatchlistNav() {
   return (
     <ul className="nav grad">
       <li className="nav-brand">
@@ -11,24 +11,20 @@ function SearchNav() {
           D I V P O R T F O L . I O 
         </Link>
       </li>
-<<<<<<< Updated upstream
-      <li className="nav-item">
-=======
       <li className="nav-item ml-auto">
->>>>>>> Stashed changes
         <Link
-          to="portfolio"
-          className={window.location.pathname === "/portfolio" ? "nav-link active" : "nav-link"}
+          to="/search"
+          className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
         >
-          Portfolio
+          Search
         </Link>
       </li>
       <li className="nav-item">
         <Link
-          to="/watchlist"
-          className={window.location.pathname === "/watchlist" ? "nav-link active" : "nav-link"}
+          to="/portfolio"
+          className={window.location.pathname === "/portfolio" ? "nav-link active" : "nav-link"}
         >
-          Watchlist
+          Portfolio
         </Link>
       </li>
       <li className="nav-item">
@@ -43,4 +39,4 @@ function SearchNav() {
   );
 }
 
-export default SearchNav;
+export default WatchlistNav;

@@ -1,0 +1,46 @@
+.logo{
+    font-size: 20px;
+    padding: 20px;
+}
+
+.menuItems{
+    list-style: none;
+    float: left;
+}
+
+li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.navbar-brand {
+    font-weight: bolder;
+}
+
+.main-info {
+    width: 48%;
+    float: left;
+    padding-top: 100px;
+    font-size: 1.5rem;
+
+}
+
+.get-started {
+    background-color: #50cde3;
+    width: 100%;
+    border-radius: 16px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+html {    
+    background-image: url("https://images.pexels.com/photos/304664/pexels-photo-304664.jpeg?cs=srgb&dl=blue-close-up-concrete-304664.jpg&fm=jpg");
+}
+
+img {
+    float: right;
+    /* width:40%; */
+    padding-top: 100px;
+    padding-right: 50px;
+}
