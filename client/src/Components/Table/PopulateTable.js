@@ -3,7 +3,7 @@ import { TableRow , TableHead } from "./index"
 import Wrapper from "../Wrapper/Wrapper"
 import Search from "../Searchbar/Search"
 import API from "../../utils/API"
-
+import SearchNav from '../Nav/SearchNav'
 
 import "./table.css"
 import axios from "axios";
@@ -91,7 +91,7 @@ class Table extends React.Component{
 
     render(){
         return(
-        // <ApiContext.Provider value={this.state.stockInfo}>
+          
             <Search 
             change={this.handleInputChange}
             submit={this.handleSymbolSearch}
@@ -117,7 +117,7 @@ class Table extends React.Component{
                     </TableHead>
                 </Wrapper>
             </Search>
-            // </ApiContext.Provider>
+            
         )
     }
 }

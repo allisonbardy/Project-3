@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Navtabs.css"
 
-function NavTabs() {
+function PortfolioNav() {
   return (
     <ul className="nav grad">
       <li className="nav-brand">
@@ -21,34 +21,10 @@ function NavTabs() {
       </li>
       <li className="nav-item">
         <Link
-          to="portfolio"
-          className={window.location.pathname === "/portfolio" ? "nav-link active" : "nav-link"}
-        >
-          Portfolio
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link
           to="/watchlist"
           className={window.location.pathname === "/watchlist" ? "nav-link active" : "nav-link"}
         >
           Watchlist
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link
-          to="/signup"
-          className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"}
-        >
-          Sign Up
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link
-          to="/signin"
-          className={window.location.pathname === "/signin" ? "nav-link active" : "nav-link"}
-        >
-          Sign In
         </Link>
       </li>
       <li className="nav-item">
@@ -59,9 +35,8 @@ function NavTabs() {
           Sign Out
         </Link>
       </li>
-
     </ul>
   );
 }
 
-export default NavTabs;
+export default PortfolioNav;

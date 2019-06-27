@@ -1,7 +1,7 @@
 import React from 'react';
 import './Search.css';
 
-const search = (props) => {
+const Search = (props) => {
 
    return (
     <div className="body">
@@ -15,4 +15,4 @@ const search = (props) => {
    )
 }
 
-export default search;
+export default Search;

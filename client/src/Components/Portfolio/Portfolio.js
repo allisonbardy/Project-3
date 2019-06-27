@@ -2,9 +2,9 @@ import React from "react"
 import API from '../../utils/API'
 import PortfolioHead from './PortfolioHead'
 import PortfolioRow from './portfolioRow'
-
+import PortfolioNav from '../Nav/PortfolioNav'
 class Portfolio extends React.Component{
-    state={
+    state = {
         symbols:[],
         stockInfo:[],
         divInfo:[],
@@ -14,15 +14,27 @@ class Portfolio extends React.Component{
 
    componentDidMount(){
        API.getOwned()
-       .then(res=>{
+       .then(async res=>{
             const data = res.data
             const symbols = []
-            const stockInfo = []
-            const divInfo= []
+            // const stockInfo = []
+            // const divInfo= []
             data.map((stock, i) => {
                 symbols.push(stock.symbol)  
             })
 
+            symbols.forEach(async symbol => {
+                const result = await API.searchStock(symbol);
+                this.setState({stockInfo: [...this.state.stockInfo, result.data]})
+                // return result.data;
+            })
+            symbols.forEach(async symbol => {
+                const result = await API.getDividends5y(symbol);
+                this.setState({divInfo: [...this.state.divInfo, result.data]})
+                console.log('divInfo ', this.state.divInfo)
+                // return result.data;
+            })
+            /*
             symbols.map((symbol) => {
                 API.searchStock(symbol).then(res=>{
                     console.log(res.data)
@@ -36,12 +48,14 @@ class Portfolio extends React.Component{
                     divInfo.push(res.data)
                 })
             })
-            this.setState({
-               apiRes: data,
-               symbols: symbols,
-               stockInfo: stockInfo,
-               divInfo:divInfo
-            })
+            */
+        //    console.log('YOU ARE HERE WITH ', stockInfo)
+        //     this.setState({
+        //        apiRes: data,
+        //        symbols: symbols,
+        //        stockInfo: stockInfo,
+        //        divInfo:divInfo
+        //     })
             
        })
        API.getCurrUser()
@@ -57,7 +71,9 @@ class Portfolio extends React.Component{
    }
 
     render(){
+        console.log('I AM RENDERNIG')
         return(
+        
             <PortfolioHead
             user={this.state.currUser}
             >
@@ -74,6 +90,7 @@ class Portfolio extends React.Component{
                     />
                 ))}
             </PortfolioHead>
+        
         )
     }
 }
