@@ -5,6 +5,7 @@ import "./Portfolio.css"
 
 
 export default function PortfolioRow(props) {
+    console.log(props.symbol, props.dividend)
    
     return (                
                  <tbody>
@@ -15,8 +16,8 @@ export default function PortfolioRow(props) {
                      <td>{props.open}</td>
                      <td>{props.latestPrice}</td>
                      <td>{props.change}</td>
-                     {props.dividends ? (
-                         <td>{props.dividends}</td>
+                     {props.dividend && props.dividend.divAmount ? (
+                         <td>{props.dividend.divAmount}</td>
                      ):
                      (
                         <td>N/A</td>
