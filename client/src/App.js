@@ -9,8 +9,12 @@ import Signup from "./Components/Signup/"
 import Signin from "./Components/SignIn/"
 // import Watchlist from "./Components/Watchlist/"
 import SearchPage from "./pages/SearchPage";
+// import SignInPage from "./pages/SignInPage";
 import MainPage from "./pages/MainPage";
 import PortfolioPage from "./pages/PortfolioPage";
+import SignUpPage from "./pages/SignUpPage"
+import SignInPage from "./pages/SignInPage"
+// import WatchlistPage from "./pages/WatchlistPage"
 
 function App() {
   return (
@@ -25,9 +29,12 @@ function App() {
         {/* <Route path ="/watchlist" component={Watchlist} /> */}
         <Route exact path="/Viewtabs" component={ViewTabs} />
         <Route exact path ="/Portfolio" component={PortfolioPage} />
-        <Route path ="/signup" component={Signup} />
+        {/* <Route exact path ="/watchlist" component={WatchlistPage} /> */}
+        {/* <Route exact path ="/signin" component={SignInPage} /> */}
+        <Route exact path ="/signup" component={SignUpPage} />
+        <Route path ="/signin" component={SignInPage} />
 
-        <Route path ="/signin" component={Signin} />
+
 
         </Switch>
       </div>
