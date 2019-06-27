@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SearchPage from "./pages/SearchPage";
 import MainPage from "./pages/MainPage";
 import PortfolioPage from "./pages/PortfolioPage";
-import SignUpPage from "./pages/SignUpPage"
-import SignInPage from "./pages/SignInPage"
+import SignUpPage from "./pages/SignUpPage";
+import SignInPage from "./pages/SignInPage";
+import WatchlistPage from "./pages/WatchlistPage"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/" component={MainPage} />
         <Route exact path="/search" component={SearchPage} />
         <Route exact path ="/Portfolio" component={PortfolioPage} />
+        <Route exact path ="/watchlist" component={WatchlistPage} />
         <Route exact path ="/signup" component={SignUpPage} />
         <Route path ="/signin" component={SignInPage} />
         </Switch>
