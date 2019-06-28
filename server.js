@@ -41,7 +41,7 @@ if (process.env.NODE_ENV === "production") {
 var models = require("./models");
 
 
-require('./config/passport.js')(passport, models.user);
+require('./config/passport.js');
 
 // Send every request to the React app
 // Define any API routes before this runs

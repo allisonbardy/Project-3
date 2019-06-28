@@ -16,10 +16,12 @@ class Watchlist extends React.Component{
             const data = res.data
             const symbols = []
             const stockInfo = []
+            // eslint-disable-next-line
             data.map((stock, i) => {
                 symbols.push(stock.symbol)  
             })
 
+            // eslint-disable-next-line
             symbols.map((symbol) => {
                 API.searchStock(symbol).then(res=>{
                     console.log(res.data)

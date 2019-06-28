@@ -1,11 +1,10 @@
 import React from "react";
 import "./App.css";
-import Menu from './Components/Menu/Menu'
+//import Menu from './Components/Menu/Menu'
 import ViewTabs from "./Components/Tabs/ViewsTab";
 import { Portfolio }from "./Components/Portfolio/index";
-import NavTabs from "./Components/Nav/Navtabs"
-import {Table} from './Components/Table/index';
-import ViewTabs from "./Components/Tabs/ViewsTab";
+//import NavTabs from "./Components/Nav/Navtabs"
+//import {Table} from './Components/Table/index';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Signup from "./Components/Signup/"
 import { Watchlist } from "./Components/Watchlist/index"
