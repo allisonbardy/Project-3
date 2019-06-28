@@ -9,13 +9,13 @@ export default function PortfolioHead(props) {
          <table className="table">
             <thead>
                <tr>
-                  <th scope="col">Stock Name</th>
-                  <th scope="col">Close</th>
-                  <th scope="col">Open</th>
-                  <th scope="col">Latest Price</th>
-                  <th scope="col">Change %</th>
-                  <th scope="col">Dividends</th>
-                  <th scope="col">Volume</th>
+                  <th className ="titles" scope="col">Stock Name</th>
+                  <th className ="titles" scope="col">Close</th>
+                  <th className ="titles" scope="col">Open</th>
+                  <th className ="titles" scope="col">Latest Price</th>
+                  <th className ="titles" scope="col">Change %</th>
+                  <th className ="titles" scope="col">Dividends</th>
+                  <th className ="titles" scope="col">Volume</th>
                </tr>
             </thead>
             {props.children}
