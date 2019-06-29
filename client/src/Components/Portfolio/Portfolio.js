@@ -2,7 +2,6 @@ import React from "react"
 import API from '../../utils/API'
 import PortfolioHead from './PortfolioHead'
 import PortfolioRow from './portfolioRow'
-import PortfolioNav from '../Nav/PortfolioNav'
 import _ from 'lodash'
 class Portfolio extends React.Component{
     state = {
@@ -40,29 +39,6 @@ class Portfolio extends React.Component{
                 
                 // return result.data;
             })
-            /*
-            symbols.map((symbol) => {
-                API.searchStock(symbol).then(res=>{
-                    console.log(res.data)
-                    stockInfo.push(res.data)
-                })
-            
-            })
-
-            symbols.map((symbol)=>{
-                API.getDividends5y(symbol).then(res=>{
-                    divInfo.push(res.data)
-                })
-            })
-            */
-        //    console.log('YOU ARE HERE WITH ', stockInfo)
-        //     this.setState({
-        //        apiRes: data,
-        //        symbols: symbols,
-        //        stockInfo: stockInfo,
-        //        divInfo:divInfo
-        //     })
-            
        })
        API.getCurrUser()
        .then(res=>{
@@ -87,7 +63,7 @@ class Portfolio extends React.Component{
                 {this.state.stockInfo.map((stock, idx)=>(
                
                     <PortfolioRow
-                    key={stock.symbol}
+                    key={stock.latestPrice}
                     symbol={stock.symbol}
                     open={stock.open}
                     close={stock.close}

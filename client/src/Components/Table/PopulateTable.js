@@ -3,7 +3,7 @@ import { TableRow , TableHead } from "./index"
 import Wrapper from "../Wrapper/Wrapper"
 import Search from "../Searchbar/Search"
 import API from "../../utils/API"
-import SearchNav from '../Nav/SearchNav'
+
 
 import "./table.css"
 import axios from "axios";
@@ -90,6 +90,7 @@ class Table extends React.Component{
         }
 
     render(){
+        console.log("I AM RENDERING")
         return(
           
             <Search 
@@ -102,7 +103,7 @@ class Table extends React.Component{
                     <TableHead>
                         {this.state.stockInfo.map((stock, idx)=>(
                             <TableRow
-                            key={stock.symbol}
+                            key={stock.idx}
                             name={stock.companyName}
                             open={stock.open}
                             latestPrice={stock.latestPrice}
