@@ -28,6 +28,7 @@ export default function PortfolioRow(props) {
                      {/* 
                      <td><button onClick={() <td><button onClick={() => props.ownOnClick(props.index)}></button></td>=> props.watchOnClick(props.index)}></button></td> */}
 
+<<<<<<< HEAD
                  </tr>
              </tbody>
              
@@ -35,3 +36,12 @@ export default function PortfolioRow(props) {
            
     
           }             
+=======
+                }
+                <td>{props.volume}</td>
+            </tr>
+        </tbody>
+    )
+}              
+
+>>>>>>> 7f79f5e9a27e9ac93732a3ce668f5e93863a0c84
