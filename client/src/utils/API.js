@@ -21,7 +21,10 @@ export default
 
     getCurrUser: function(){
         return axios.get('/api/currentUser')
-    }
+    },
 
+    submitPort: function(Stock){
+        return axios.post('/api/users/owned')
+    }
     
 }

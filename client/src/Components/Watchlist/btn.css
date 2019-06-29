@@ -1,0 +1,17 @@
+.btn {
+    border-radius: 16px;
+    background-color: #50cde3 !important;
+
+    text-align: center;
+    float: left;
+
+}
+
+.center{
+    margin:0 auto
+}
+
+.small-text{
+    font-size: .85rem
+}
+

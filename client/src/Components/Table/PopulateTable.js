@@ -90,8 +90,9 @@ class Table extends React.Component{
         }
 
     render(){
+        console.log("I AM RENDERING")
         return(
-        // <ApiContext.Provider value={this.state.stockInfo}>
+          
             <Search 
             change={this.handleInputChange}
             submit={this.handleSymbolSearch}
@@ -102,7 +103,7 @@ class Table extends React.Component{
                     <TableHead>
                         {this.state.stockInfo.map((stock, idx)=>(
                             <TableRow
-                            key={stock.symbol}
+                            key={stock.idx}
                             name={stock.companyName}
                             open={stock.open}
                             latestPrice={stock.latestPrice}
@@ -117,7 +118,7 @@ class Table extends React.Component{
                     </TableHead>
                 </Wrapper>
             </Search>
-            // </ApiContext.Provider>
+            
         )
     }
 }

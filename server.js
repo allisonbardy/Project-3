@@ -68,6 +68,7 @@ app.post("/api/users", function(req,res){
 })
 
 
+
 app.post("/api/owned", function(req, res){
   db.Owned.create({
     symbol:req.body.symbol,

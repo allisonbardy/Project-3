@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Input, SubmitButton, } from "../Signup"
-
+import { withRouter } from "react-router-dom"
 
 import axios from 'axios';
 
@@ -105,4 +105,4 @@ class Signup extends Component {
     }
 }
 
-export default Signup
+export default withRouter(Signup)

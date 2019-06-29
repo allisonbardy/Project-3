@@ -1,9 +1,12 @@
 import React from "react"
 import API from '../../utils/API'
-import PortfolioHead from './PortfolioHead'
-import PortfolioRow from './portfolioRow'
 import _ from 'lodash'
+import WatchlistHead from "./WatchlistHead";
+import WatchlistRow from "./WatchlistRow";
+import Axios from "axios";
+
 class Portfolio extends React.Component{
+
     state = {
         symbols:[],
         stockInfo:[],
@@ -13,7 +16,7 @@ class Portfolio extends React.Component{
     }
 
    componentDidMount(){
-       API.getOwned()
+       API.getWatched()
        .then(async res=>{
             const data = res.data
             const symbols = []
@@ -39,6 +42,21 @@ class Portfolio extends React.Component{
                 
                 // return result.data;
             })
+
+           
+
+
+            
+
+            
+            
+
+
+
+
+
+            
+            
        })
        API.getCurrUser()
        .then(res=>{
@@ -50,20 +68,36 @@ class Portfolio extends React.Component{
            })
            console.log(this.state)
        })
+
+       
    }
+   portonclick= stockIdx=>{
+    const stock = this.state.stockInfo[stockIdx]
+
+    let newPort = {
+        symbol: stock.symbol
+    }
+    
+    this.submitPort(newPort)
+}
+
+    submitPort(Stock){
+        Axios.post("/api/owned", Stock, function(req, res){
+            console.log("Posted to Owned")
+        })
+    }
 
     render(){
         console.log('I AM RENDERNIG', this.state.divInfo.filter(divStock => divStock.symbol === 'AAPL')[0])//.divAmount
         return(
         
-            <PortfolioHead
-            user={this.state.currUser}
-            >
+            <WatchlistHead>
+            
 
                 {this.state.stockInfo.map((stock, idx)=>(
                
-                    <PortfolioRow
-                    key={stock.latestPrice}
+                    <WatchlistRow
+                    key={stock.idx}
                     symbol={stock.symbol}
                     open={stock.open}
                     close={stock.close}
@@ -72,15 +106,14 @@ class Portfolio extends React.Component{
                     dividend={this.state.divInfo.filter(divStock => divStock.symbol === stock.symbol)[0]}
                     change={stock.changePercent}
                     volume={stock.latestVolume}
+                    click={this.portonclick}
                     index={idx}
                     />
                 ))}
-            </PortfolioHead>
+            </WatchlistHead>
         
         )
     }
 }
 
 export default Portfolio;
-
- 

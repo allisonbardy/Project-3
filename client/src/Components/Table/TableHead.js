@@ -15,8 +15,7 @@ export default function TableHead(props){
       <th scope="col">Latest Price</th>
       <th scope="col">Change</th>
       <th scope='col'>Volume</th>
-      <th scope="col">Add to portfolio</th>
-      <th scope="col">Save to Watchlist</th>
+      
 
     </tr>
   </thead>
